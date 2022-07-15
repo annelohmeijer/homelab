@@ -92,7 +92,7 @@ if __name__ == "__main__":
     with mlflow.start_run():
 
         model_obj = xgb.Booster()
-        model_obj.load_model("files/model.json")
+        model_obj.load_model("data/model.json")
 
         pickle.dump(model_obj, open("model.pkl", "wb"))
 

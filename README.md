@@ -5,14 +5,15 @@ _case_
 Playground project to learn Kubernetes / Containerization / Cloud DevOps on the fly while building a MLPlatform. 
 The frameworks used to deploy the trained model are MLflow, Docker and Kubernetes. 
 
-### Wrap model in MLflow
+## `model/`
 
+This folder contains all code required to create an mlflow artifact from existing model (or by retraining). 
 To get the model as mlflow artifacts create a virtual environment (e.g. conda) with mlflow in it. Since the model
-is already trained, we run the wrap entrypoint, which, instead of retraining the model (not the purpose of the case)
-, gets the trained model artifacts and logs them in an mlflow run. Thus after creating the virtual env run
+is already trained, we run the wrap entrypoint, which gets the trained model artifacts and logs them in an mlflow run. 
+Thus after creating the virtual env run
 
 ```commandline
-mlflow run . --entry-point wrap
+mlflow run model --entry-point wrap --no-conda
 ```
 this will create a folder `mlruns` in which the run is logged.
 
