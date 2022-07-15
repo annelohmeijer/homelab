@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  creationTimestamp: null
+  name: platform-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: tracking-server
+            port:
+              number: 8000
+        path: /tracking-server
+        pathType: Prefix
+      - backend:
+          service:
+            name: nginxsvc
+            port:
+              number: 8000
+        path: /nginx
+        pathType: Prefix
+status:
+  loadBalancer: {}

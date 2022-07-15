@@ -1,0 +1,11 @@
+name: platform
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - pip
+  - pip:
+      - mlflow==1.19.0
+      - -r requirements.txt

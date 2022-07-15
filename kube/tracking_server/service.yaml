@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tracking-server
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    nodePort: 32600
+  selector:
+    app: tracking-server
+  type: NodePort

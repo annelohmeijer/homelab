@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: serve
+  name: model
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 32080
+  selector:
+    app: serve
+  type: NodePort
+status:
+  loadBalancer: {}

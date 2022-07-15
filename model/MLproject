@@ -1,0 +1,8 @@
+name: plt
+
+conda_env: mlflow_conda_env.yml
+
+entry_points:
+  wrap:
+    command: >-
+      python wrap.py

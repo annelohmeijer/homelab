@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tracking-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tracking-server
+  template:
+    metadata:
+      labels:
+        app: tracking-server
+    spec:
+      containers:
+      - name: tracking-server
+        image: tracking-server:v1.0
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
