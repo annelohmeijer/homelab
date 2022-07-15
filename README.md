@@ -32,7 +32,7 @@ which will deploy a few pods in which the model is served as API, a service that
 and an ingress resources that makes them available under `http://$(minikube ip)/model/invocations`. Invoke the model
 via `python scripts/invoke.py`
 
-### Not working next steps
+### Tracking server
 
 Next steps would be an MLflow tracking server running on the cluster to which users can log their experiments, and
 an API to which serve requests can be posted. This endpoint would then trigger a pipeline that deploys the model
@@ -47,6 +47,22 @@ and deploy them to the cluster with
 kubectl apply -f kube/api -f kube/tracking_server
 ```
 
+
+## Setup Ingress and opening a tunnel
+
+In order to make the resources on the cluster available you need do create an ingress instance that redirects
+the traffic to the appropriate ports
+```buildoutcfg
+minikube addons enable ingress
+kubectl apply -f kube/ingress.yaml
+```
+When on Mac with Docker Desktop, you need to setup a tunnel to open up the traffic, since Docker on Mac ...
+```buildoutcfg
+minikube tunnel
+```
+Then the services are available at (localhost is synonym for 127.0.0.1)
+- http://localhost/tracking-server/#
+- http://localhost/api/
 
 ## To do's for up and running app
 1. Run model in container with parameter
