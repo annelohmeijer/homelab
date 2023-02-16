@@ -1,0 +1,6 @@
+apiVersion: v2
+name: tracking-server
+description: A Helm chart for tracking server
+type: application
+version: 3.2.2
+appVersion: 3.2.2
