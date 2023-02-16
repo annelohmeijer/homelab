@@ -2,7 +2,7 @@ _case_
 
 ## Introduction
 
-Playground project to learn Kubernetes, Helm, Terraform, DevOps, the fly while building a MLPlatform. There are few services to deploy via kube, helm or tf:
+Playground project to learn Kubernetes, Helm, Terraform, DevOps, on the fly while building a MLPlatform. There are few services to deploy via kube, helm or tf:
 - model served as API
 - mlflow tracking server 
 - API to interact with (e.g. Flask or Django)
