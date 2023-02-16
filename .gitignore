@@ -24,3 +24,7 @@ pip.conf
 *.tfstate
 *.terraform.lock*
 */.terraform/*
+
+# downloaded helm charts
+mysql/
+nginx/
