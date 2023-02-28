@@ -1,6 +1,6 @@
 FROM python:3.8
 
-COPY kube/api/main.py main.py
+COPY k8s/api/main.py main.py
 
 COPY *pip.conf /etc/pip.conf
 
