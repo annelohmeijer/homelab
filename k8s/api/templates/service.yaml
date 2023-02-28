@@ -9,7 +9,6 @@ spec:
   selector:
     app: api
   type: NodePort
-
 status:
   loadBalancer: {}
 
