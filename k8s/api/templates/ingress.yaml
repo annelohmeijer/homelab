@@ -17,12 +17,5 @@ spec:
               number: 80
         path: /api/(.*)
         pathType: Prefix
-      - backend:
-          service:
-            name: tracking-server
-            port:
-              number: 80
-        path: /tracking-server(.*)
-        pathType: Prefix
 status:
   loadBalancer: {}
