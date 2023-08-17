@@ -1,11 +1,8 @@
-_case_
-
 ## ML Platform on Minikube
 
-Run scalable ML Platform on a local Kubernetes cluster (Minikube) with Terraform. 
+Run your own scalable ML Platform on a local Kubernetes cluster (Minikube) with Terraform. 
 
 ### Prerequisites
-
 
 Playground project to learn Kubernetes, Helm, Terraform, DevOps, on the fly while building a MLPlatform. There are few services to deploy via kube, helm or tf:
 - model served as API
