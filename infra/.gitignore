@@ -1,0 +1,35 @@
+# Terraform
+**/.terraform/
+**/.terraform.lock.hcl
+**/terraform.tfstate
+**/terraform.tfstate.backup
+**/*.tfplan
+**/*.tfvars
+!**/*.tfvars.example
+
+# Terragrunt
+**/.terragrunt-cache/
+**/terragrunt.hcl.backup
+
+# Kubeconfig files
+**/k3s-kubeconfig
+**/kubeconfig*
+
+# SSH keys
+**/*.pem
+**/*.key
+!**/id_*.pub
+
+# Environment files
+**/.env
+**/.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

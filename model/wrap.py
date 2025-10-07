@@ -1,4 +1,5 @@
 """Wrap entrypoint for mlflow that gets trained model and stores it as mlflow artifacts in mlflow run."""
+
 import logging
 import pickle
 import sys

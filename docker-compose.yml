@@ -1,0 +1,38 @@
+networks:
+  hub:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
+  spoke1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.1.0.0/24
+  spoke2:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.2.0.0/24
+
+services:
+  hub-router:
+    image: alpine:latest
+    command: tail -f /dev/null
+    networks:
+      - hub
+    container_name: hub-router
+
+  app1:
+    image: alpine:latest
+    command: tail -f /dev/null
+    networks:
+      - spoke1
+    container_name: app1
+
+  app2:
+    image: alpine:latest
+    command: tail -f /dev/null
+    networks:
+      - spoke2
+    container_name: app2

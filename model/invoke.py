@@ -1,10 +1,11 @@
 """Utility script to invoke hosted model."""
+
 import logging
 import sys
 
+import click
 import pandas as pd
 import requests
-import click
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
