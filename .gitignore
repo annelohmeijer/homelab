@@ -30,3 +30,7 @@ mysql/
 nginx/
 
 CLAUDE.md
+
+# npm
+package*
+node_modules/*

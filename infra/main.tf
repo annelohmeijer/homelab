@@ -4,7 +4,8 @@ resource "hcloud_ssh_key" "default" {
 }
 
 resource "hcloud_network" "homelab" {
-  name     = "homelab-network"
+  name = "homelab-network"
+  # this provides 65K addresses (2 ^ 16 - 2)
   ip_range = "10.0.0.0/16"
 
 }
