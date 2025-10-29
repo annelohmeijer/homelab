@@ -34,3 +34,5 @@ CLAUDE.md
 # npm
 package*
 node_modules/*
+
+*/tmp/*

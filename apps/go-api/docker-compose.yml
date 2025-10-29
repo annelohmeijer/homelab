@@ -1,0 +1,23 @@
+volumes:
+  pgdata:
+
+networks:
+  postgres:
+    driver: bridge
+
+services:
+  db:
+    container_name: homelab
+    hostname: postgres
+    ports:
+      - 5432:5432
+    image: postgres
+    environment:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB: homelab
+      PGDATA: /var/lib/postgresql/data/${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - postgres
