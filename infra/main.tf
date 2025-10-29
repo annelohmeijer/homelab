@@ -23,12 +23,17 @@ resource "hcloud_server" "homelab" {
   location    = "nbg1" # Nuremberg
   ssh_keys    = [hcloud_ssh_key.default.id]
 
-  labels = {
-    role = "server"
+  network {
+    network_id = hcloud_network.homelab.id
+    ip         = "10.0.0.2"
   }
+
 }
 
 output "server_public_ip" {
   value = hcloud_server.homelab.ipv4_address
+}
 
+output "server_private_ip" {
+  value = [for net in hcloud_server.homelab.network : net.ip][0]
 }
