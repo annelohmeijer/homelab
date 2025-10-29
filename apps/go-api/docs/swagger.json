@@ -3,7 +3,7 @@
     "info": {
         "contact": {}
     },
-    "basePath": "/api/v1",
+    "basePath": "/api/v2",
     "paths": {
         "/example/helloworld": {
             "get": {
@@ -18,6 +18,26 @@
                     "example"
                 ],
                 "summary": "ping example",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/health": {
+            "get": {
+                "description": "Check if the API is running",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "health"
+                ],
+                "summary": "Health check",
                 "responses": {
                     "200": {
                         "description": "OK",

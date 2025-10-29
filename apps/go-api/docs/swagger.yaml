@@ -1,4 +1,4 @@
-basePath: /api/v1
+basePath: /api/v2
 info:
   contact: {}
 paths:
@@ -17,4 +17,17 @@ paths:
       summary: ping example
       tags:
       - example
+  /health:
+    get:
+      description: Check if the API is running
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Health check
+      tags:
+      - health
 swagger: "2.0"

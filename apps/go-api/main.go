@@ -1,22 +1,8 @@
-// package main
-//
-// import (
-// 	"fmt"
-// 	"net/http"
-// )
-//
-// func main() {
-// 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-// 		fmt.Fprintf(w, "Hello, you've requested: %s\n", r.URL.Path)
-// 	})
-//
-// 	http.ListenAndServe(":80", nil)
-// }
-
 package main
 
 import (
 	"net/http"
+	"time"
 
 	docs "api/docs"
 
@@ -27,29 +13,37 @@ import (
 
 // @BasePath /api/v2
 
-// PingExample godoc
-// @Summary ping example
-// @Schemes
-// @Description do ping
-// @Tags example
-// @Accept json
+// Health godoc
+// @Summary Health check
+// @Description Check if the API is running
+// @Tags health
 // @Produce json
-// @Success 200 {string} Helloworld
-// @Router /example/helloworld [get]
-func Helloworld(g *gin.Context) {
-	g.JSON(http.StatusOK, "helloworld")
+// @Success 200 {string} string "OK"
+// @Router /health [get]
+func Health(g *gin.Context) {
+	g.JSON(http.StatusOK, gin.H{
+		"status":    "OK",
+		"timestamp": time.Now(),
+	})
 }
 
 func main() {
 	r := gin.Default()
 	docs.SwaggerInfo.BasePath = "/api/v1"
 	v1 := r.Group("/api/v1")
+
+	// healthGroup := v1.Group("")
+
+	{
+		v1.GET("/health", Health)
+	}
+
 	{
 		eg := v1.Group("/example")
 		{
 			eg.GET("/helloworld", Helloworld)
 		}
 	}
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+	r.GET("/api/docs/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 	r.Run(":8080")
 }
