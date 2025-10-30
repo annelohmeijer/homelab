@@ -3,3 +3,7 @@ build:
  
 run: 
 	air
+
+swagger:
+	swag init
+
